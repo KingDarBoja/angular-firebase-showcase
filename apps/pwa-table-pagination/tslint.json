@@ -1,0 +1,20 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "angularFirebaseShowcase",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "angular-firebase-showcase",
+      "kebab-case"
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["!**/*"]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "projects": {
+    "pwa-table-pagination": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/pwa-table-pagination",
+      "sourceRoot": "apps/pwa-table-pagination/src",
+      "prefix": "angular-firebase-showcase",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/pwa-table-pagination",
+            "index": "apps/pwa-table-pagination/src/index.html",
+            "main": "apps/pwa-table-pagination/src/main.ts",
+            "polyfills": "apps/pwa-table-pagination/src/polyfills.ts",
+            "tsConfig": "apps/pwa-table-pagination/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/pwa-table-pagination/src/favicon.ico",
+              "apps/pwa-table-pagination/src/assets"
+            ],
+            "styles": ["apps/pwa-table-pagination/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/pwa-table-pagination/src/environments/environment.ts",
+                  "with": "apps/pwa-table-pagination/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "pwa-table-pagination:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "pwa-table-pagination:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pwa-table-pagination:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/pwa-table-pagination/tsconfig.app.json",
+              "apps/pwa-table-pagination/tsconfig.spec.json",
+              "apps/pwa-table-pagination/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/pwa-table-pagination/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/pwa-table-pagination/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "pwa-table-pagination-e2e": {
+      "root": "apps/pwa-table-pagination-e2e",
+      "sourceRoot": "apps/pwa-table-pagination-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/pwa-table-pagination-e2e/cypress.json",
+            "tsConfig": "apps/pwa-table-pagination-e2e/tsconfig.e2e.json",
+            "devServerTarget": "pwa-table-pagination:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "pwa-table-pagination:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/pwa-table-pagination-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/pwa-table-pagination-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "pwa-table-pagination"
+}
