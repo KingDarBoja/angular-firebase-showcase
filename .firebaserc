@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pwa-table-pagination": {
+      "hosting": {
+        "pwa-table-pagination": [
+          "pwa-table-pagination"
+        ]
+      }
+    }
+  }
+}

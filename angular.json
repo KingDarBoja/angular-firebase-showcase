@@ -25,7 +25,9 @@
               "apps/pwa-table-pagination/src/favicon.ico",
               "apps/pwa-table-pagination/src/assets"
             ],
-            "styles": ["apps/pwa-table-pagination/src/styles.scss"],
+            "styles": [
+              "apps/pwa-table-pagination/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +86,10 @@
               "apps/pwa-table-pagination/tsconfig.spec.json",
               "apps/pwa-table-pagination/tsconfig.editor.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/pwa-table-pagination/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/pwa-table-pagination/**/*"
+            ]
           }
         },
         "test": {
@@ -93,6 +98,10 @@
             "jestConfig": "apps/pwa-table-pagination/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
@@ -117,7 +126,9 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/pwa-table-pagination-e2e/tsconfig.e2e.json"],
+            "tsConfig": [
+              "apps/pwa-table-pagination-e2e/tsconfig.e2e.json"
+            ],
             "exclude": [
               "**/node_modules/**",
               "!apps/pwa-table-pagination-e2e/**/*"
