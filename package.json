@@ -25,7 +25,8 @@
     "update": "ng update @nrwl/workspace",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "serve:pwa": "http-server -p 8080 -c-1 dist/apps/pwa-table-pagination"
   },
   "private": true,
   "dependencies": {
@@ -62,10 +63,11 @@
     "eslint": "7.10.0",
     "firebase-tools": "^8.0.0",
     "fuzzy": "^0.1.3",
-    "inquirer-autocomplete-prompt": "^1.0.1",
+    "http-server": "^0.12.3",
     "inquirer": "^6.2.2",
-    "jest-preset-angular": "8.3.1",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "jest": "26.2.2",
+    "jest-preset-angular": "8.3.1",
     "open": "^7.0.3",
     "prettier": "2.0.4",
     "ts-jest": "26.4.0",

@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "angularFirebaseShowcase",
+      "afs",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "angular-firebase-showcase",
+      "afs",
       "kebab-case"
     ]
   },
