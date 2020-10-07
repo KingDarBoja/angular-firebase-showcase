@@ -1,2 +1,12 @@
 <h1>Welcome to {{ title }}</h1>
 <div class="offline" *ngIf="!online">You are offline!</div>
+
+<h2>Country List</h2>
+
+<afs-custom-table
+  [data]="tableCountryData"
+  [tableCols]="tableCountryColumns"
+></afs-custom-table>
+
+<h2>Country Data</h2>
+<div>{{ tableCountryData | json }}</div>

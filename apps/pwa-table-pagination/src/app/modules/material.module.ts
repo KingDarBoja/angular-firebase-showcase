@@ -4,6 +4,6 @@ import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [MatTableModule, MatSnackBarModule],
-  exports: [MatSnackBarModule],
+  exports: [MatTableModule, MatSnackBarModule],
 })
 export class MaterialModule { }

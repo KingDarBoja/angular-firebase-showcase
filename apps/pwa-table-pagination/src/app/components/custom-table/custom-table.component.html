@@ -1,0 +1,24 @@
+<table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="col.property" *ngFor="let col of tableCols">
+    <mat-header-cell
+      *matHeaderCellDef
+      [ngStyle]="{
+        'flex-basis':
+          (col.flexBasis > 1 ? 100 / tableCols.length : col.flexBasis * 100) +
+          '%'
+      }"
+      >{{ col.name | titlecase }}</mat-header-cell
+    >
+    <mat-cell
+      *matCellDef="let row"
+      [ngStyle]="{
+        'flex-basis':
+          (col.flexBasis > 1 ? 100 / tableCols.length : col.flexBasis * 100) +
+          '%'
+      }"
+      >{{ row[col.property] }}</mat-cell
+    >
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>
