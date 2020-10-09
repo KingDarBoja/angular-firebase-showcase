@@ -1,5 +1,10 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnChanges,
+} from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface SelectionColumnsData<T> {
   /** Set the flex-basis percentage of the column. Must be lesser or equal than 1. */
@@ -16,17 +21,17 @@ export interface SelectionColumnsData<T> {
   templateUrl: 'custom-table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CustomTableComponent<T> implements OnInit {
+export class CustomTableComponent<T> implements OnChanges {
   @Input() data: T[] = [];
   @Input() tableCols: SelectionColumnsData<T>[] = [];
 
   displayedColumns: string[];
-  dataSource = new MatTableDataSource<T>([]);
+  dataSource;
 
   constructor() {}
 
-  ngOnInit() {
-    this.displayedColumns = this.tableCols.map(c => c.property);
-    this.dataSource.data = [...this.data];
+  ngOnChanges() {
+    this.displayedColumns = this.tableCols.map((c) => c.property);
+    this.dataSource = new MatTableDataSource<T>([...this.data]);
   }
 }
